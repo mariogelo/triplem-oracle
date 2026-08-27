@@ -4,14 +4,14 @@ metadata:
   name: docs-route
   namespace: default
   annotations:
-    external-dns.alpha.kubernetes.io/target: "141.148.81.80"
+    external-dns.alpha.kubernetes.io/target: "204.216.209.70"
 spec:
   parentRefs:
   - name: public-gateway
     namespace: envoy-gateway-system
     sectionName: https-docs
   hostnames:
-  - "k3s.sudhanva.me"
+  - "triplembiz.com"
   rules:
   - matches:
     - path:
@@ -32,7 +32,7 @@ spec:
     namespace: envoy-gateway-system
     sectionName: http
   hostnames:
-  - "k3s.sudhanva.me"
+  - "triplembiz.com"
   rules:
   - filters:
     - type: RequestRedirect
@@ -50,6 +50,6 @@ spec:
   issuerRef:
     name: cloudflare-issuer
     kind: ClusterIssuer
-  commonName: "k3s.sudhanva.me"
+  commonName: "triplembiz.com"
   dnsNames:
-  - "k3s.sudhanva.me"
+  - "triplembiz.com"

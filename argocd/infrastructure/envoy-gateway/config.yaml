@@ -105,7 +105,7 @@ spec:
     - name: https-docs
       port: 443
       protocol: HTTPS
-      hostname: "k3s.sudhanva.me"
+      hostname: "triplembiz.com"
       allowedRoutes:
         namespaces:
           from: All
@@ -117,7 +117,7 @@ spec:
     - name: https-argocd
       port: 443
       protocol: HTTPS
-      hostname: "cd.k3s.sudhanva.me"
+      hostname: "cd.triplembiz.com"
       allowedRoutes:
         namespaces:
           from: All

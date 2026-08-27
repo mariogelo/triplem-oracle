@@ -9,7 +9,7 @@ spec:
     namespace: envoy-gateway-system
     sectionName: https-argocd
   hostnames:
-  - "cd.k3s.sudhanva.me"
+  - "cd.triplembiz.com"
   rules:
   - matches:
     - path:
@@ -30,7 +30,7 @@ spec:
     namespace: envoy-gateway-system
     sectionName: http
   hostnames:
-  - "cd.k3s.sudhanva.me"
+  - "cd.triplembiz.com"
   rules:
   - filters:
     - type: RequestRedirect
@@ -49,6 +49,6 @@ spec:
     name: cloudflare-issuer
     kind: ClusterIssuer
     group: cert-manager.io
-  commonName: "cd.k3s.sudhanva.me"
+  commonName: "cd.triplembiz.com"
   dnsNames:
-  - "cd.k3s.sudhanva.me"
+  - "cd.triplembiz.com"
