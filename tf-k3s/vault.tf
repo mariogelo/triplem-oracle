@@ -28,6 +28,13 @@ resource "oci_vault_secret" "cloudflare_api_token" {
     content_type = "BASE64"
     content      = base64encode(var.cloudflare_api_token)
   }
+  lifecycle {
+    ignore_changes = [
+      key_id,
+      secret_name,
+      secret_content,
+    ]
+  }
 }
 
 resource "oci_vault_secret" "cloudflare_zone_id" {
@@ -35,10 +42,16 @@ resource "oci_vault_secret" "cloudflare_zone_id" {
   vault_id       = oci_kms_vault.k3s_vault.id
   key_id         = oci_kms_key.master_key.id
   secret_name    = "cloudflare-zone-id"
-
   secret_content {
     content_type = "BASE64"
     content      = base64encode(var.cloudflare_zone_id)
+  }
+  lifecycle {
+    ignore_changes = [
+      key_id,
+      secret_name,
+      secret_content,
+    ]
   }
 }
 
@@ -47,10 +60,16 @@ resource "oci_vault_secret" "domain_name" {
   vault_id       = oci_kms_vault.k3s_vault.id
   key_id         = oci_kms_key.master_key.id
   secret_name    = "domain-name"
-
   secret_content {
     content_type = "BASE64"
     content      = base64encode(var.domain_name)
+  }
+  lifecycle {
+    ignore_changes = [
+      key_id,
+      secret_name,
+      secret_content,
+    ]
   }
 }
 
@@ -59,10 +78,16 @@ resource "oci_vault_secret" "github_pat" {
   vault_id       = oci_kms_vault.k3s_vault.id
   key_id         = oci_kms_key.master_key.id
   secret_name    = "github-pat"
-
   secret_content {
     content_type = "BASE64"
     content      = base64encode(var.git_pat)
+  }
+  lifecycle {
+    ignore_changes = [
+      key_id,
+      secret_name,
+      secret_content,
+    ]
   }
 }
 
@@ -71,10 +96,16 @@ resource "oci_vault_secret" "github_username" {
   vault_id       = oci_kms_vault.k3s_vault.id
   key_id         = oci_kms_key.master_key.id
   secret_name    = "github-username"
-
   secret_content {
     content_type = "BASE64"
     content      = base64encode(var.git_username)
+  }
+  lifecycle {
+    ignore_changes = [
+      key_id,
+      secret_name,
+      secret_content,
+    ]
   }
 }
 
@@ -83,10 +114,16 @@ resource "oci_vault_secret" "git_repo_url" {
   vault_id       = oci_kms_vault.k3s_vault.id
   key_id         = oci_kms_key.master_key.id
   secret_name    = "git-repo-url"
-
   secret_content {
     content_type = "BASE64"
     content      = base64encode(var.git_repo_url)
+  }
+  lifecycle {
+    ignore_changes = [
+      key_id,
+      secret_name,
+      secret_content,
+    ]
   }
 }
 
@@ -95,10 +132,16 @@ resource "oci_vault_secret" "k3s_token" {
   vault_id       = oci_kms_vault.k3s_vault.id
   key_id         = oci_kms_key.master_key.id
   secret_name    = "k3s-token"
-
   secret_content {
     content_type = "BASE64"
     content      = base64encode(var.k3s_token)
+  }
+  lifecycle {
+    ignore_changes = [
+      key_id,
+      secret_name,
+      secret_content,
+    ]
   }
 }
 
@@ -107,10 +150,16 @@ resource "oci_vault_secret" "acme_email" {
   vault_id       = oci_kms_vault.k3s_vault.id
   key_id         = oci_kms_key.master_key.id
   secret_name    = "acme-email"
-
   secret_content {
     content_type = "BASE64"
     content      = base64encode(var.acme_email)
+  }
+  lifecycle {
+    ignore_changes = [
+      key_id,
+      secret_name,
+      secret_content,
+    ]
   }
 }
 
@@ -119,10 +168,16 @@ resource "oci_vault_secret" "argocd_admin_password" {
   vault_id       = oci_kms_vault.k3s_vault.id
   key_id         = oci_kms_key.master_key.id
   secret_name    = "argocd-admin-password"
-
   secret_content {
     content_type = "BASE64"
     content      = base64encode(var.argocd_admin_password)
+  }
+  lifecycle {
+    ignore_changes = [
+      key_id,
+      secret_name,
+      secret_content,
+    ]
   }
 }
 
@@ -131,10 +186,16 @@ resource "oci_vault_secret" "argocd_admin_password_hash" {
   vault_id       = oci_kms_vault.k3s_vault.id
   key_id         = oci_kms_key.master_key.id
   secret_name    = "argocd-admin-password-hash"
-
   secret_content {
     content_type = "BASE64"
     content      = base64encode(var.argocd_admin_password_hash)
+  }
+  lifecycle {
+    ignore_changes = [
+      key_id,
+      secret_name,
+      secret_content,
+    ]
   }
 }
 
@@ -147,6 +208,13 @@ resource "oci_vault_secret" "ssh_public_key" {
   secret_content {
     content_type = "BASE64"
     content      = base64encode(local.ssh_public_key)
+  }
+  lifecycle {
+    ignore_changes = [
+      key_id,
+      secret_name,
+      secret_content,
+    ]
   }
 }
 
